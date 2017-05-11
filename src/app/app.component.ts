@@ -21,6 +21,15 @@ export class AppComponent {
   }
 
   add() {
-    
+    this.cousines.push({
+      name: 'Asian'
+    })
+  }
+
+  update() {
+    this.af.database.object('/restaurant').update({
+      name: 'New Name',
+      rating: 5
+    })
   }
 }
