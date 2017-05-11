@@ -32,4 +32,10 @@ export class AppComponent {
       rating: 5
     })
   }
+
+  remove(){
+    this.af.database.object('/restaurant').remove()
+      .then(x => console.log('SUCCESS'))
+      .catch(error => console.log('ERROR', error))
+  }
 }
