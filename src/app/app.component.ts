@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFire } from 'angularfire2'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  cousines = ['c1', 'c2', 'c3'];
+
+  constructor(af: AngularFire){
+    af.database.list('/cousines').subscribe(x => {
+      this.cousines = x;
+      console.log(this.cousines);
+    })
+  }
 }
